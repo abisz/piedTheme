@@ -1,14 +1,14 @@
 /*
-Theme Name: piedTheme
-Theme URI: http://underscores.me/
-Author: Underscores.me
-Author URI: http://underscores.me/
-Description: Description
-Version: 1.0.0
+Theme Name: PiedTheme
+Theme URI: http://piedcode.com/
+Author: Simon Reinsperger
+Author URI: http://piedcode.com/
+Description: PiedTheme is a simple, fully responsive, blogging theme
+Version: 0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: piedtheme
-Tags:
+Tags: responsive-layout
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -48,6 +48,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Normalize
 --------------------------------------------------------------*/
 html {
+    font-size: 62.5%;
     font-family: sans-serif;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust:     100%;
@@ -263,6 +264,22 @@ th {
     padding: 0;
 }
 
+input[type="search"]::-webkit-input-placeholder {
+    color: #212121;
+}
+
+input[type="search"]:-moz-placeholder { /* Firefox 18- */
+    color: #212121;
+}
+
+input[type="search"]::-moz-placeholder {  /* Firefox 19+ */
+    color: #212121;
+}
+
+input[type="search"]:-ms-input-placeholder {
+    color: #212121;
+}
+
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
@@ -271,9 +288,10 @@ button,
 input,
 select,
 textarea {
-    color: #404040;
+    color: #212121;
+    font-family: 'Raleway', sans-serif;
     font-size: 16px;
-    font-size: 1rem;
+    font-size: 1.6rem;
     line-height: 1.5;
 }
 
@@ -283,7 +301,12 @@ h3,
 h4,
 h5,
 h6 {
-    clear: both;
+    clear: right;
+    font-family: 'Bitter', serif;
+    font-weight:700;
+    color:#212121;
+    -ms-word-break: break-word;
+    word-break: keep-all;
 }
 
 p {
@@ -417,30 +440,28 @@ table {
 
 /*--------------------------------------------------------------
 # Forms
+
 --------------------------------------------------------------*/
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-    border: 1px solid;
-    border-color: #ccc #ccc #bbb;
-    border-radius: 3px;
-    background: #e6e6e6;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-    color: rgba(0, 0, 0, .8);
-    font-size: 12px;
-    font-size: 0.75rem;
-    line-height: 1;
-    padding: .6em 1em .4em;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid #FBC02D;
+    background: #FFFFFF;
+    color: #FBC02D;
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 22px;
+    padding: 1rem 2rem;
+    -webkit-appearance: button;
 }
 
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-    border-color: #ccc #bbb #aaa;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
+    color:white;
+    background:  #FBC02D;
 }
 
 button:focus,
@@ -451,8 +472,8 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-    border-color: #aaa #bbb #bbb;
-    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+    color:white;
+    background:  #FBC02D;
 }
 
 input[type="text"],
@@ -461,9 +482,9 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea {
-    color: #666;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    color: #212121;
+    border: 1px solid #B6B6B6;
+    box-shadow: 0px 2px 2px 0px rgba(125,125,125,0.50);
 }
 
 input[type="text"]:focus,
@@ -491,21 +512,23 @@ textarea {
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
 a {
-    color: royalblue;
+    color: #212121;
+    text-decoration:underline;
 }
 
 a:visited {
-    color: purple;
+    color: #212121;
 }
 
 a:hover,
 a:focus,
 a:active {
-    color: midnightblue;
+    color: #212121;
 }
 
 a:focus {
@@ -525,10 +548,13 @@ a:active {
     display: block;
     float: left;
     width: 100%;
+    position:relative;
+    font-family: 'Bitter', serif;
+    background:#FFEB3B;
 }
 
 .main-navigation ul {
-    display: none;
+    display:none;
     list-style: none;
     margin: 0;
     padding-left: 0;
@@ -537,20 +563,26 @@ a:active {
 .main-navigation li {
     float: left;
     position: relative;
+    width:100%;
 }
 
 .main-navigation a {
     display: block;
+    padding: 1.7rem 2rem;
+    color:#212121;
+    font-size:16px;
+    font-size:1.6rem;
+    line-height:1;
     text-decoration: none;
 }
 
 .main-navigation ul ul {
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
     float: left;
     position: absolute;
-    top: 1.5em;
     left: -999em;
     z-index: 99999;
+    background:#EFDD42;
+
 }
 
 .main-navigation ul ul ul {
@@ -568,10 +600,13 @@ a:active {
 
 .main-navigation li:hover > a,
 .main-navigation li.focus > a {
+    background: #EFDD42;
 }
 
 .main-navigation ul ul :hover > a,
 .main-navigation ul ul .focus > a {
+    background: #FFEB3B;
+
 }
 
 .main-navigation ul ul a:hover,
@@ -591,20 +626,48 @@ a:active {
 .main-navigation .current_page_item > a,
 .main-navigation .current-menu-item > a,
 .main-navigation .current_page_ancestor > a {
+    background: #FFF9C4;
 }
 
 /* Small menu. */
+.menu-toggle{
+}
+
 .menu-toggle,
 .main-navigation.toggled ul {
     display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+button.menu-toggle {
+    background-color: transparent;
+    border:none;
+    height:50px;
+}
+
+.menu-toggle::before{
+    display: inline-block;
+    vertical-align: top;
+    font-family: 'Fontawesome';
+    font-size: 35px;
+    font-size: 3.5rem;
+    color: #212121;
+    -webkit-font-smoothing: antialiased;
+    content:'\f0c9';
+}
+
+@media screen and (min-width: 700px) {
     .menu-toggle {
         display: none;
     }
     .main-navigation ul {
         display: block;
+        margin-left: 15rem;
+    }
+    .main-navigation ul ul {
+        margin-left: 0;
+    }
+    .main-navigation li {
+        width:auto;
     }
 }
 
@@ -630,6 +693,211 @@ a:active {
     width: 50%;
 }
 
+
+/*logo text brand*/
+
+.text-brand{
+    position:absolute;;
+    top:0;
+    left:40%;
+}
+
+.text-brand a{
+    margin:0;
+    padding:0;
+}
+
+.text-brand p{
+    color:#212121;
+    font-size:36px;
+    font-size:3.6rem;
+    font-family: 'Bitter', serif;
+    line-height: 1;
+    padding: 7px 0;
+    margin: 0 auto;
+}
+
+
+@media screen and (min-width:700px){
+    .text-brand{
+        left:0;
+    }
+    .text-brand p{
+        padding: 7px ;
+
+    }
+
+}
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.header-image img{
+    margin:0 auto;
+    display: block;
+}
+
+.header-background-image {
+    background: no-repeat center;
+    background-size: cover!important;
+    -moz-background-size: cover!important;
+    -webkit-background-size: cover!important;
+}
+
+
+.site-branding{
+    margin-top:50px;
+    background-color: #212121;
+    padding: 13rem 4rem 0;
+    text-align: center;
+}
+
+.site-title{
+    font-weight: 700;
+    font-size: 40px;
+    font-size: 4rem;
+    line-height: normal;
+    margin:0;
+}
+
+.site-description {
+    font-weight: 100;
+    font-style: italic;
+    font-size: 17px;
+    font-size: 1.7rem;
+    color:#727272;
+    margin:0
+}
+
+.site-title a{
+    color: #212121;
+    text-decoration: none;
+}
+
+.title-box{
+    background-color: white;
+    padding: 1.5rem 0.75rem;
+}
+
+@media screen and (min-width: 700px){
+    .site-branding{
+        padding: 15rem 17rem 0;
+    }
+    .site-title{
+        font-size: 72px;
+        font-size: 7.2rem;
+    }
+    .site-description{
+        font-size:25px;
+        font-size:2.5rem;
+    }
+
+
+}
+@media screen and (min-width: 1400px){
+    .site-branding{
+        padding: 15rem 42rem 0;
+    }
+    .site-title{
+        font-size: 100px;
+        font-size: 10rem;
+    }
+    .site-description{
+        font-size:40px;
+        font-size:4rem;
+    }
+}
+
+/* Header Search */
+
+input[type="search"] {
+    box-shadow: none;
+    border:none;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.search-box-wrapper {
+    z-index: -2;
+    width: 100%;
+    display:none;
+}
+
+.search-box {
+    padding: 0;
+    background: #FFEB3B;
+}
+
+.search-box .search-field {
+    width:100%;
+    float: left;
+    padding: 1rem 2rem 1rem 4rem;
+    font-size: 20px;
+    font-size: 2rem;
+    background-color: #EFDD42;
+    border: 0;
+}
+
+.error404 .search-submit,
+.search .search-submit,
+.search-box .search-submit {
+    display: none;
+}
+
+.search-toggle {
+    float: right;
+    height:50px;
+    font-size: 25px;
+    line-height: 1;
+    padding:12.5px 15px;
+    color: #212121;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 0;
+}
+
+.search-toggle:hover,
+.search-toggle.active {
+    background: #EFDD42;
+}
+
+#search-container-nav{
+    width:300px;
+    display:none;
+    float:right;
+}
+
+#search-container-nav .search-field{
+    width:100%;
+}
+
+#search-container-nav .search-box-wrapper{
+    display: inherit;
+}
+
+@media screen and (min-width: 700px){
+    .search-box .search-field{
+        width:50%;
+        float:right;
+    }
+}
+
+@media screen and (min-width: 1160px){
+    #search-container{
+        display:none;
+    }
+    #search-container-nav{
+        display: inherit;
+    }
+    .search-toggle {
+        cursor: inherit;
+        font-size: 15px;
+        padding: 17.5px 15px;
+    }
+}
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -640,6 +908,7 @@ a:active {
     height: 1px;
     width: 1px;
     overflow: hidden;
+    right:0;
 }
 
 .screen-reader-text:focus {
@@ -740,7 +1009,37 @@ a:active {
 }
 
 .hentry {
-    margin: 0 0 1.5em;
+    margin: 1rem 1.5rem;
+}
+
+@media screen and (min-width:700px) {
+
+    .hentry{
+        margin: 1rem auto;
+        max-width: 700px;
+        border: 1px solid #B6B6B6;
+        box-shadow: 0px 2px 2px 0px rgba(125,125,125,0.50);
+        padding: 1.5rem 3rem;
+    }
+
+}
+
+@media screen and (min-width:1440px){
+    .hentry{
+        width: 500px;
+        margin-right: 0;
+    }
+    .hentry:first-child{
+        width:auto;
+        max-width: 100%;
+        border: none;
+        box-shadow: none;
+    }
+    .hentry:nth-child(even){
+    float:left;
+        margin-left:3rem;
+        margin-top:0;
+    }
 }
 
 .byline,

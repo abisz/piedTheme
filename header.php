@@ -23,15 +23,54 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'piedtheme' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'piedtheme' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+        <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( '', 'piedtheme' ); ?></button>
+            <div class="text-brand">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                    <p>{pied}</p>
+                </a>
+            </div>
+            <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+
+            <div id="search-container-nav" class="search-box-wrapper clear">
+                <div class="search-box clear">
+                    <?php get_search_form(); ?>
+                </div>
+            </div>
+            <div class="search-toggle">
+                <i class="fa fa-search"></i>
+                <a href="#search-container" class="screen-reader-text"><?php _e( 'Search', 'my-simone' ); ?></a>
+            </div>
+        </nav><!-- #site-navigation -->
+
+        <div id="search-container" class="search-box-wrapper clear">
+            <div class="search-box clear">
+                <?php get_search_form(); ?>
+            </div>
+        </div>
+
+        <?php if ( get_header_image()  && 'blank' == get_header_textcolor()) : ?>
+            <div class="header-image">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+                    <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
+                </a>
+            </div>
+        <?php endif; // End header image check. ?>
+        <?php
+        if ( get_header_image() && !('blank' == get_header_textcolor()) ) {
+            echo '<div class="site-branding header-background-image" style="background-image: url(' . get_header_image() . ')">';
+        } else {
+            echo '<div class="site-branding">';
+        }
+        ?>
+            <div class="title-box">
+                <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                <p class="site-description"><?php bloginfo( 'description' ); ?></p>
+            </div>
+        </div><!-- .site-branding -->
+
+
+</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

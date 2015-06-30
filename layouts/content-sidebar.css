@@ -3,20 +3,135 @@ Theme Name: piedTheme
 Layout: Content-Sidebar
 */
 
-.content-area {
-	float: left;
-	margin: 0 -25% 0 0;
-	width: 100%;
+.site-content {
 }
-.site-main {
-	margin: 0 25% 0 0;
-}
+
 .site-content .widget-area {
-	float: right;
-	overflow: hidden;
-	width: 25%;
+    width: auto;
+    float: none;
+    margin: 1rem 1.5rem;
+    background: #fff;
+}
+
+
+.entry-header,
+.entry-content,
+.entry-meta,
+.entry-footer,
+.tag-links,
+.post-navigation,
+.comments-area,
+.paging-navigation {
+    position: relative;
+    max-width: 780px;
+    max-width: 78rem;
+    margin: 0 auto;
+}
+
+.site-footer {
+    clear: both;
+    width: 100%;
+}
+
+@media screen and (min-width: 700px){
+    .site-content .widget-area {
+        margin: 1rem auto;
+        max-width: 700px;
+    }
+}
+
+@media screen and (min-width: 1160px)  {
+    .content-area {
+        width: 100%;
+        float: left;
+        margin-left: -310px;
+        padding-left: 310px;
+    }
+
+    .site-content .widget-area {
+        width: 280px;
+        float: right;
+        padding: 1.5rem;
+        margin:1.5rem;
+        background: #fff;
+        background: hsl(0, 0%, 100%);
+    }
+}
+
+@media screen and (min-width:1440px){
+    .site-main{
+        width:100%;
+       max-width: 1100px;
+        float:right;
+        padding: 0 3rem;
+    }
+
+}
+
+/*
+
+.site-content .widget-area {
+    width: 380px;
+    float: right;
+    padding: 4rem;
+    background: #fff;
+    background: hsl(0, 0%, 100%);
 }
 .site-footer {
-	clear: both;
-	width: 100%;
+    clear: both;
+    width: 100%;
 }
+
+.entry-header,
+.entry-content,
+.entry-meta,
+.entry-footer,
+.tag-links,
+.post-navigation,
+.comments-area,
+.paging-navigation {
+    position: relative;
+    max-width: 780px;
+    max-width: 78rem;
+    padding: 0 4rem;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 1540px) {
+    .content-area {
+        float: left;
+        width: 100%;
+        margin-right: -380px;
+    }
+}
+
+@media screen and (min-width: 1160px) and (max-width: 1539px) {
+    .content-area {
+        width: 100%;
+        float: left;
+        margin-left: -380px;
+        padding-left: 380px;
+    }
+
+    .entry-header,
+    .entry-content,
+    .entry-meta,
+    .entry-footer,
+    .tag-links,
+    .post-navigation,
+    .comments-area,
+    .paging-navigation {
+        margin-right: 0;
+    }
+
+}
+
+@media screen and (max-width: 1159px) {
+    .site-content .widget-area {
+        width: auto;
+        max-width: 780px;
+        float: none;
+        margin: 1em auto 0;
+    }
+}
+*/

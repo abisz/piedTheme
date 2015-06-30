@@ -1,4 +1,4 @@
-<?php
+ <?php
 /**
  * Sample implementation of the Custom Header feature
  * http://codex.wordpress.org/Custom_Headers
@@ -24,10 +24,10 @@
 function piedtheme_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'piedtheme_custom_header_args', array(
 		'default-image'          => '',
-		'default-text-color'     => '000000',
-		'width'                  => 1000,
-		'height'                 => 250,
-		'flex-height'            => true,
+		'default-text-color'     => '212121',
+		'width'                  => 1440,
+		'height'                 => 360,
+		'flex-height'            => false,
 		'wp-head-callback'       => 'piedtheme_header_style',
 		'admin-head-callback'    => 'piedtheme_admin_header_style',
 		'admin-preview-callback' => 'piedtheme_admin_header_image',
@@ -57,8 +57,7 @@ function piedtheme_header_style() {
 		// Has the text been hidden?
 		if ( 'blank' == $header_text_color ) :
 	?>
-		.site-title,
-		.site-description {
+		.site-branding{
 			position: absolute;
 			clip: rect(1px, 1px, 1px, 1px);
 		}

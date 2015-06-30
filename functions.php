@@ -63,17 +63,17 @@ function piedtheme_setup() {
 	 */
 	add_theme_support( 'post-formats', array(
 		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
+//		'image',
+//		'video',
+//		'quote',
+//		'link',
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'piedtheme_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
+//	add_theme_support( 'custom-background', apply_filters( 'piedtheme_custom_background_args', array(
+//		'default-color' => 'ffffff',
+//		'default-image' => '',
+//	) ) );
 }
 endif; // piedtheme_setup
 add_action( 'after_setup_theme', 'piedtheme_setup' );
@@ -86,7 +86,7 @@ add_action( 'after_setup_theme', 'piedtheme_setup' );
  * @global int $content_width
  */
 function piedtheme_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'piedtheme_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'piedtheme_content_width', 700 );
 }
 add_action( 'after_setup_theme', 'piedtheme_content_width', 0 );
 
@@ -110,15 +110,29 @@ add_action( 'widgets_init', 'piedtheme_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
+ *
  */
 function piedtheme_scripts() {
 	wp_enqueue_style( 'piedtheme-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'piedtheme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+    wp_enqueue_style( 'piedtheme-layout-style' , get_template_directory_uri() . '/layouts/content-sidebar.css');
+
+    wp_enqueue_style('piedtheme-fonts', 'http://fonts.googleapis.com/css?family=Bitter:400,700|Raleway:400,100,700');
+
+    wp_enqueue_style('piedtheme-fontawesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
+    wp_enqueue_script( 'piedtheme-superfish', get_template_directory_uri() . '/js/superfish.min.js', array('jquery'), '20140328', true );
+
+    wp_enqueue_script( 'piedtheme-superfish-settings', get_template_directory_uri() . '/js/superfish-settings.js', array('piedtheme-superfish'), '20140328', true );
+
+    wp_enqueue_script( 'piedtheme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'piedtheme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+    wp_enqueue_script( 'pidetheme-hide-search', get_template_directory_uri() . '/js/hide-search.js', array(), '20140404', true );
+
+
+    if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }

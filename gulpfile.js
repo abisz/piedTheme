@@ -34,7 +34,7 @@ gulp.task('coffee', function(){
     gulp.src(coffeeSources)
         .pipe(coffee({ bare: true })
             .on('error', gutil.log))
-        .pipe(gulp.dest('js/'))
+        .pipe(gulp.dest('/js'))
 });
 
 gulp.task('js', function(){
@@ -42,9 +42,10 @@ gulp.task('js', function(){
         .pipe(concat('script.js'))
         .pipe(browserify())
         .pipe(gulpif(env === 'production', uglify()))
-        .pipe(gulp.dest('js/'))
+        .pipe(gulp.dest(''))
 })
 
+/*
 gulp.task('sass', function(){
     gulp.src(sassSources)
         .pipe(sass().on('error', sass.logError))
@@ -52,20 +53,21 @@ gulp.task('sass', function(){
         .pipe(gulp.dest('./css'));
 });
 
+
 gulp.task('css', function(){
     gulp.src(cssSources)
         .pipe(concat('style.css'))
         .pipe(gulp.dest(''));
 
 })
-
+*/
 gulp.task('watch', function(){
     gulp.watch(coffeeSources, ['coffee']);
     gulp.watch(jsSources, ['js']);
-    gulp.watch(sassSources, ['sass']);
-    gulp.watch(cssSources, ['css']);
+//    gulp.watch(sassSources, ['sass']);
+ //   gulp.watch(cssSources, ['css']);
 
 
 });
 
-gulp.task('default', ['coffee', 'js', 'sass', 'css', 'watch']);
+gulp.task('default', ['coffee', 'js']);
