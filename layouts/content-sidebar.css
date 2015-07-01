@@ -49,6 +49,7 @@ Layout: Content-Sidebar
     }
 
     .site-content .widget-area {
+        box-sizing: border-box;
         width: 280px;
         float: right;
         padding: 1.5rem;

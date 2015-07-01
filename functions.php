@@ -43,6 +43,7 @@ function piedtheme_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'piedtheme' ),
+        'social' => esc_html__( 'Social Menu', 'piedtheme'),
 	) );
 
 	/*
