@@ -13,7 +13,20 @@
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php piedtheme_posted_on(); ?>
+
+            <?php piedtheme_posted_on(); ?>
+
+            <?php
+            echo get_the_tag_list( '<ul><li><i class="fa fa-tag"></i>', '</li><li>', '</li></ul>' );
+            ?>
+
+            <?php
+            if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) {
+                echo '<span class="comments-link">';
+                comments_popup_link( __( 'Leave a comment', 'my-simone' ), __( '<i class="fa fa-comment"></i>1 Comment', 'my-simone' ), __( '<i class="fa fa-comment"></i>% Comments', 'my-simone' ) );
+                echo '</span>';
+            }
+            ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
@@ -35,7 +48,5 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php piedtheme_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+
 </article><!-- #post-## -->

@@ -9,11 +9,26 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+
+        <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<div class="entry-meta">
-			<?php piedtheme_posted_on(); ?>
-		</div><!-- .entry-meta -->
+
+            <?php piedtheme_posted_on(); ?>
+
+            <?php
+            echo get_the_tag_list( '<span class="meta meta-tags"><ul><li><i class="fa fa-tag"></i>', '</li><li>', '</li></ul></span>' );
+            ?>
+
+            <?php
+            if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) {
+                echo '<span class="meta comments-link">';
+                comments_popup_link( __( 'Leave a comment', 'piedtheme' ), __( '<i class="fa fa-comment"></i>1 Comment', 'piedtheme' ), __( '<i class="fa fa-comment"></i>% Comments', 'my-simone' ) );
+                echo '</span>';
+            }
+            ?>
+
+        </div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
@@ -27,7 +42,9 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php piedtheme_entry_footer(); ?>
+        <?php
+            edit_post_link( esc_html__( 'Edit', 'piedtheme' ), '<span class="edit-link">', '</span>' );
+        ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 

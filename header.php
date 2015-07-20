@@ -50,6 +50,8 @@
             </div>
         </div>
 
+        <?php if (!is_single()){?>
+
         <?php if ( get_header_image()  && 'blank' == get_header_textcolor()) : ?>
             <div class="header-image">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
@@ -69,6 +71,7 @@
                 <p class="site-description"><?php bloginfo( 'description' ); ?></p>
             </div>
         </div><!-- .site-branding -->
+<?php }?>
 
 
 </header><!-- #masthead -->

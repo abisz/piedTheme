@@ -1036,6 +1036,262 @@ TAGCLOUD
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+### Typography
+--------------------------------------------------------------*/
+
+.entry-title{
+    font-size:20px;
+    font-size: 2rem;
+    font-weight: 100;
+    margin: 0 0 1rem;
+    line-height:120%;
+}
+
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+    font-weight: 100;
+    margin: 0 0 .5rem; }
+
+.entry-content h1 {
+    font-weight: 700;
+    font-size: 30px;
+    font-size: 3rem;
+}
+
+.entry-content h2 {
+    font-weight: 700;
+    font-size: 28px;
+    font-size: 2.8rem;
+}
+
+.entry-content h3 {
+    font-size: 26px;
+    font-size: 2.6rem;
+}
+
+.entry-content h4 {
+    font-size: 24px;
+    font-size: 2.4rem;
+}
+
+.entry-content h5 {
+    font-size: 22px;
+    font-size: 2.2rem;
+}
+
+.entry-content h6 {
+    font-size: 18px;
+    font-size: 1.8rem;
+}
+
+.entry-content p,
+.entry-content ul,
+.entry-content ol {
+    font-size: 14px;
+    font-size: 1.4rem;
+    line-height: 120%;
+}
+
+.entry-content blockquote p {
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 140%;
+}
+
+/*Bigger Screen needs bigger fonts*/
+@media screen and (min-width: 450px){
+
+    .entry-title{
+        font-size:30px;
+        font-size: 3rem;
+        margin: 0 0 2rem;
+    }
+
+    .entry-content h1,
+    .entry-content h2,
+    .entry-content h3,
+    .entry-content h4,
+    .entry-content h5,
+    .entry-content h6 { margin: 0 0 1rem; }
+
+
+    .entry-content h1 {
+        font-size: 32px;
+        font-size: 3.2rem;
+    }
+
+    .entry-content h2 {
+        font-size: 30px;
+        font-size: 3rem;
+    }
+
+    .entry-content h3 {
+        font-size: 28px;
+        font-size: 2.8rem;
+    }
+
+    .entry-content h4 {
+        font-size: 26px;
+        font-size: 2.6rem;
+    }
+
+    .entry-content h5 {
+        font-size: 24px;
+        font-size: 2.4rem;
+    }
+
+    .entry-content h6 {
+        font-size: 20px;
+        font-size: 2rem;
+    }
+
+    .entry-content p,
+    .entry-content ul,
+    .entry-content ol {
+        font-size: 16px;
+        font-size: 1.6rem;
+        line-height: 120%;
+    }
+
+    .entry-content blockquote p {
+        font-size: 18px;
+        font-size: 1.8rem;
+        line-height: 140%;
+    }
+}
+
+
+/*Even Bigger Screen needs bigger fonts*/
+@media screen and (min-width: 1400px){
+
+    .entry-title{
+        font-size:45px;
+        font-size: 4.5rem;
+        margin: 0 0 2.8rem;
+    }
+
+    .entry-content h1 {
+        font-size: 34px;
+        font-size: 3.4rem;
+    }
+
+    .entry-content h2 {
+        font-size: 32px;
+        font-size: 3.2rem;
+    }
+
+    .entry-content h3 {
+        font-size: 30px;
+        font-size: 3rem;
+    }
+
+    .entry-content h4 {
+        font-size: 28px;
+        font-size: 2.8rem;
+    }
+
+    .entry-content h5 {
+        font-size: 26px;
+        font-size: 2.6rem;
+    }
+
+    .entry-content h6 {
+        font-size: 22px;
+        font-size: 2.2rem;
+    }
+
+    .entry-content p,
+    .entry-content ul,
+    .entry-content ol {
+        font-size: 18px;
+        font-size: 1.8rem;
+        line-height: 120%;
+    }
+
+    .entry-content blockquote p {
+        font-size: 20px;
+        font-size: 2rem;
+        line-height: 140%;
+    }
+}
+
+/*-----------------
+       Meta
+-----------------*/
+.entry-meta{
+    font-size:15px;
+    font-size:1.5rem;
+    margin:0;
+    display:block;
+}
+
+.entry-meta a {
+    text-decoration: none;
+    color: #727272;
+
+}
+
+.entry-meta i{
+    margin-right: 15px;
+    color: #727272;
+
+}
+
+/*every one of the meta data blocks (date, tags, comments) has the class meta and inherits the display attribute from entry-meta, that's how it switched from block to inline block, with 1 line.*/
+.entry-meta .meta{
+    display:inherit;
+}
+
+/*sets meta data inline when min-width 600px*/
+@media screen and (min-width: 600px){
+    .entry-meta{
+        display:inline-block;
+    }
+    .entry-meta .meta{
+        margin-left: 20px;
+    }
+    .entry-meta .meta:first-child{
+        margin-left: 0;
+    }
+}
+
+/*Date*/
+
+
+
+/*Tags*/
+.entry-meta ul{
+    display:inherit;
+    padding:0;
+    margin: 0;
+}
+
+.entry-meta li{
+    display: inline-block;
+    margin-right: 1rem;
+
+}
+
+.entry-meta li a{
+    border-radius: 3px;
+    padding:1px 2px;
+    background-color: #727272;
+    color: #FFFFFF;
+}
+
+/*Comment*/
+.entry-meta .comments-link{
+    display:inherit;
+}
+/*---------------------
+         Default
+---------------------*/
 .sticky {
     display: block;
 }
@@ -1052,6 +1308,11 @@ TAGCLOUD
         border: 1px solid #B6B6B6;
         box-shadow: 0px 2px 2px 0px rgba(125,125,125,0.50);
         padding: 1.5rem 3rem;
+    }
+
+    .single .hentry{
+        border:none;
+        box-shadow: none;
     }
 
 }

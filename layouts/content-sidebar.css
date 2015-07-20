@@ -48,6 +48,11 @@ Layout: Content-Sidebar
         padding-left: 310px;
     }
 
+    .single .content-area{
+        margin:0 auto;
+        padding:0;
+    }
+
     .site-content .widget-area {
         box-sizing: border-box;
         width: 280px;
@@ -65,6 +70,26 @@ Layout: Content-Sidebar
        max-width: 1100px;
         float:right;
         padding: 0 3rem;
+    }
+
+    .single .site-main{
+        float:none;
+        margin:0 auto;
+
+    }
+
+    .entry-header,
+    .entry-content,
+    .entry-meta,
+    .entry-footer,
+    .tag-links,
+    .post-navigation,
+    .comments-area,
+    .paging-navigation {
+        position: relative;
+        max-width: 1100px;
+        max-width: 110rem;
+        margin: 0 auto;
     }
 
 }
