@@ -87,7 +87,7 @@ function piedtheme_posted_on() {
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 	);
 
-	echo '<span class="meta posted-on"><i class="fa fa-clock-o"></i>' . $posted_on . '</span>'; // WPCS: XSS OK.
+	echo '<span class="meta posted-on"><i class="fa fa-clock-o"></i>' . $posted_on . '<i class="fa fa-clock-o back"></i></span>'; // WPCS: XSS OK.
 
 }
 endif;

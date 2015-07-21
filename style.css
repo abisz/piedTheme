@@ -321,7 +321,7 @@ i {
 }
 
 blockquote {
-    margin: 0 1.5em;
+    margin: 0;
 }
 
 address {
@@ -363,6 +363,61 @@ ins {
 
 big {
     font-size: 125%;
+}
+
+/*--------------------------------------------------------------
+## Blockquotes
+--------------------------------------------------------------*/
+blockquote {
+    padding: 1em 1.5em 0;
+    margin-bottom: 1em;
+    font-style: italic;
+    border-top: solid 1px hsl(0, 0%, 80%);
+    border-bottom: solid 1px hsl(0, 0%, 80%);
+}
+
+blockquote em {
+    font-style: normal;
+}
+
+cite {
+    display: block;
+    margin-top: 1em;
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-style: normal;
+    line-height: 1.5em;
+    text-align: right;
+    font-weight:100;
+}
+
+blockquote.alignleft {
+    width: 50%;
+    float: left;
+    padding: 1em 0 0;
+    margin-right: 2em;
+}
+
+blockquote.alignright {
+    width: 50%;
+    float: right;
+    padding: 1em 0 0;
+    margin-left: 2em;
+}
+
+/* Blockquotes responsive */
+/* Optional rules that set blockquotes to full width on smaller screens */
+@media screen and (max-width: 780px) {
+    blockquote.alignleft,
+    blockquote.alignright { width: 40%; }
+}
+
+@media screen and (max-width:600px) {
+    blockquote.alignleft,
+    blockquote.alignright {
+        width: 100%;
+        padding: 1em 1.5em 0;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -1048,6 +1103,10 @@ TAGCLOUD
     line-height:120%;
 }
 
+.entry-title a{
+    text-decoration: none;
+
+}
 
 .entry-content h1,
 .entry-content h2,
@@ -1110,7 +1169,6 @@ TAGCLOUD
     .entry-title{
         font-size:30px;
         font-size: 3rem;
-        margin: 0 0 2rem;
     }
 
     .entry-content h1,
@@ -1173,7 +1231,7 @@ TAGCLOUD
     .entry-title{
         font-size:45px;
         font-size: 4.5rem;
-        margin: 0 0 2.8rem;
+        margin: 0 0 1.5rem;
     }
 
     .entry-content h1 {
@@ -1209,8 +1267,8 @@ TAGCLOUD
     .entry-content p,
     .entry-content ul,
     .entry-content ol {
-        font-size: 18px;
-        font-size: 1.8rem;
+        font-size: 17px;
+        font-size: 1.7rem;
         line-height: 120%;
     }
 
@@ -1225,8 +1283,8 @@ TAGCLOUD
        Meta
 -----------------*/
 .entry-meta{
-    font-size:15px;
-    font-size:1.5rem;
+    font-size:14px;
+    font-size:1.4rem;
     margin:0;
     display:block;
 }
@@ -1240,7 +1298,11 @@ TAGCLOUD
 .entry-meta i{
     margin-right: 15px;
     color: #727272;
+}
 
+/*hiding back icons for big screens*/
+.entry-meta .back{
+    display:none;
 }
 
 /*every one of the meta data blocks (date, tags, comments) has the class meta and inherits the display attribute from entry-meta, that's how it switched from block to inline block, with 1 line.*/
@@ -1254,15 +1316,23 @@ TAGCLOUD
         display:inline-block;
     }
     .entry-meta .meta{
-        margin-left: 20px;
+        margin-right: 20px;
     }
     .entry-meta .meta:first-child{
         margin-left: 0;
     }
 }
 
-/*Date*/
+/*shift meta block to the right when screen is bigger than 1400px*/
+@media screen and (min-width: 1400px){
+    .single .entry-meta{
+        width:210px;
+        float:left;
+    }
 
+}
+
+/*Date*/
 
 
 /*Tags*/
@@ -1280,9 +1350,14 @@ TAGCLOUD
 
 .entry-meta li a{
     border-radius: 3px;
-    padding:1px 2px;
+    padding:1px 4px;
     background-color: #727272;
     color: #FFFFFF;
+}
+
+.entry-meta li a:hover{
+    background-color: #FBC02D;
+    color: #212121;
 }
 
 /*Comment*/
@@ -1290,14 +1365,19 @@ TAGCLOUD
     display:inherit;
 }
 /*---------------------
-         Default
+         Posts
 ---------------------*/
 .sticky {
     display: block;
 }
 
 .hentry {
-    margin: 1rem 1.5rem;
+    margin: 1rem 1.5rem 2rem;
+    border-bottom: solid 1px #B6B6B6;
+}
+
+.single .hentry{
+    border:none;
 }
 
 @media screen and (min-width:700px) {
@@ -1322,17 +1402,67 @@ TAGCLOUD
         width: 500px;
         margin-right: 0;
     }
+    /*first post gets special look*/
     .hentry:first-child{
         width:auto;
         max-width: 100%;
         border: none;
         box-shadow: none;
+        padding-left:100px;
     }
+    .single .hentry:first-child{
+        padding-left:0;
+    }
+    /*make room for the shifted meta block*/
+    .hentry:first-child .entry-content{
+        position:relative;
+        left:0;
+        max-width:700px;
+        margin:0;
+        overflow: hidden;
+    }
+    .hentry:first-child .entry-content p:first-child{
+        margin-top:0;
+    }
+    .hentry:first-child .entry-meta{
+        display:block;
+        width:210px;
+        float:left;
+        text-align:right;
+    }
+
+    /*even more room if single view*/
+    .single .hentry:first-child .entry-meta{
+        margin-left:-210px;
+    }
+    .hentry:first-child .entry-meta .meta{
+        margin-right:40px;
+        position:relative;
+
+    }
+    .hentry:first-child .entry-meta ul li {
+        margin:0 0 0 1rem;
+    }
+    /*showing icons on the right side*/
+    .hentry:first-child .entry-meta i{
+        display:none;
+    }
+
+    .hentry:first-child .entry-meta .back{
+        display:block;
+        position:absolute;
+        top:0;
+        right:-20px;
+        margin:5px 0 0 0;
+
+    }
+
     .hentry:nth-child(even){
     float:left;
         margin-left:3rem;
         margin-top:0;
     }
+
 }
 
 .byline,

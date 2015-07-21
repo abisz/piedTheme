@@ -17,14 +17,14 @@
             <?php piedtheme_posted_on(); ?>
 
             <?php
-            echo get_the_tag_list( '<span class="meta meta-tags"><ul><li><i class="fa fa-tag"></i>', '</li><li>', '</li></ul></span>' );
+            echo get_the_tag_list( '<span class="meta meta-tags"><ul><li><i class="fa fa-tag"></i>', '</li><li>', '</li></ul><i class="fa fa-tag back"></i></span>' );
             ?>
 
             <?php
             if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) {
                 echo '<span class="meta comments-link">';
                 comments_popup_link( __( 'Leave a comment', 'piedtheme' ), __( '<i class="fa fa-comment"></i>1 Comment', 'piedtheme' ), __( '<i class="fa fa-comment"></i>% Comments', 'my-simone' ) );
-                echo '</span>';
+                echo '<i class="fa fa-comment back"></i></span>';
             }
             ?>
 

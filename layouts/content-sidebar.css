@@ -16,7 +16,6 @@ Layout: Content-Sidebar
 
 .entry-header,
 .entry-content,
-.entry-meta,
 .entry-footer,
 .tag-links,
 .post-navigation,
@@ -75,12 +74,11 @@ Layout: Content-Sidebar
     .single .site-main{
         float:none;
         margin:0 auto;
-
+        max-width:760px;/*700 + 60padding*/
     }
 
     .entry-header,
     .entry-content,
-    .entry-meta,
     .entry-footer,
     .tag-links,
     .post-navigation,
