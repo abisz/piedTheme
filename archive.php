@@ -36,8 +36,11 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php the_posts_navigation(); ?>
-
+            <?php the_posts_pagination( array(
+                'prev_text'          => __( '<i class="fa fa-backward"></i>', 'piedtheme' ),
+                'next_text'          => __( '<i class="fa fa-forward"></i>', 'piedtheme' ),
+                'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'piedtheme' ) . ' </span>',
+            ) ); ?>
 		<?php else : ?>
 
 			<?php get_template_part( 'template-parts/content', 'none' ); ?>

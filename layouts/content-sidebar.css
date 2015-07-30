@@ -7,9 +7,10 @@ Layout: Content-Sidebar
 }
 
 .site-content .widget-area {
+    clear:both;
     width: auto;
     float: none;
-    margin: 1rem 1.5rem;
+    margin: 3em 1.5em 1em;
     background: #fff;
 }
 
@@ -27,6 +28,10 @@ Layout: Content-Sidebar
     margin: 0 auto;
 }
 
+.post-navigation{
+    margin-bottom: 2em;
+}
+
 .site-footer {
     clear: both;
     width: 100%;
@@ -34,7 +39,7 @@ Layout: Content-Sidebar
 
 @media screen and (min-width: 700px){
     .site-content .widget-area {
-        margin: 1rem auto;
+        margin: 3em auto 1em;
         max-width: 700px;
     }
 }
@@ -53,6 +58,7 @@ Layout: Content-Sidebar
     }
 
     .site-content .widget-area {
+        clear:none;
         box-sizing: border-box;
         width: 280px;
         float: right;
@@ -87,7 +93,6 @@ Layout: Content-Sidebar
         position: relative;
         max-width: 1100px;
         max-width: 110rem;
-        margin: 0 auto;
     }
 
 }

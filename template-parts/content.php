@@ -8,6 +8,16 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <?php
+    /*making sure the featured image is only displayed if it has one, it's the first post and it's not an archive page*/
+    if (has_post_thumbnail() && ($wp_query->current_post == 0) && !is_archive()) {
+        echo '<div class="front-post-thumbnail clear">';
+        echo '<a href="' . get_permalink() . '" title="' . __('Read ', 'piedtheme') . get_the_title() . '" rel="bookmark">';
+        echo the_post_thumbnail('large-thumb');
+        echo '</a>';
+        echo '</div>';
+    }
+    ?>
 	<header class="entry-header">
 		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
@@ -33,20 +43,13 @@
 
 	<div class="entry-content">
 		<?php
-			/* translators: %s: Name of current post */
-			the_content( sprintf(
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'piedtheme' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
-		?>
-
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'piedtheme' ),
-				'after'  => '</div>',
-			) );
+            the_excerpt();
 		?>
 	</div><!-- .entry-content -->
+
+    <footer class="entry-footer continue-reading">
+            <?php echo '<a class="btn btn-continue" href="' . get_permalink() . '" title="' . __('Continue Reading ', 'piedtheme') . get_the_title() . '" rel="bookmark">Read Full Article</a>'; ?>
+    </footer>
 
 
 </article><!-- #post-## -->

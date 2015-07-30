@@ -13,6 +13,7 @@ if ( ! function_exists( 'the_posts_navigation' ) ) :
  *
  * @todo Remove this function when WordPress 4.3 is released.
  */
+
 function the_posts_navigation() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
@@ -36,6 +37,40 @@ function the_posts_navigation() {
 	<?php
 }
 endif;
+
+
+function piedtheme_post_navigation( $args = array() ){
+    $args = wp_parse_args( $args, array(
+        'prev_text'          => '%title',
+        'next_text'          => '%title',
+        'screen_reader_text' => __( 'Post navigation' ),
+    ) );
+
+    $navigation = '';
+    $previousArrow = get_previous_post_link( '<div class="arrow-previous">%link</div>', '<i class="fa fa-backward nav"></i>');
+    $previous   = get_previous_post_link( '<div class="navtext">%link</div>', '<p>'.$args['prev_text'].'</p>' );
+
+    $nextArrow = get_next_post_link( '<div class="arrow-next">%link</div>', '<i class="fa fa-forward nav"></i>');
+    $next       = get_next_post_link( '<div class="navtext">%link</div>', '<p>'.$args['next_text'].'</p>');
+
+    // Only add markup if there's somewhere to navigate to.
+    /*
+    if ( $previous || $next ) {
+        $navigation = _navigation_markup( $previous . $next, 'post-navigation', $args['screen_reader_text'] );
+    }*/
+
+    $navigation = "<nav class='navigation post-navigation' role='navigation'>
+		<h2 class='screen-reader-text'>Posts navigation</h2>
+		<div class='nav-links clear'>
+		<div class='nav-previous'>"
+		.$previousArrow.$previous.
+        "</div><div class='nav-next'>".
+        $nextArrow.$next.
+        "</div></div>
+	</nav>";
+
+    echo $navigation;
+}
 
 if ( ! function_exists( 'the_post_navigation' ) ) :
 /**

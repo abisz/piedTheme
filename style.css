@@ -4,7 +4,7 @@ Theme URI: http://piedcode.com/
 Author: Simon Reinsperger
 Author URI: http://piedcode.com/
 Description: PiedTheme is a simple, fully responsive, blogging theme
-Version: 0.1
+Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: piedtheme
@@ -391,32 +391,35 @@ cite {
     font-weight:100;
 }
 
-blockquote.alignleft {
-    width: 50%;
-    float: left;
-    padding: 1em 0 0;
-    margin-right: 2em;
+blockquote.alignleft{
+    width:100%;
+    padding: 1em 1.5em 0;
+    flaot:left;
+    margin-right:2em;
 }
 
-blockquote.alignright {
-    width: 50%;
-    float: right;
-    padding: 1em 0 0;
-    margin-left: 2em;
+blockquote.alignright{
+    width:100%;
+    padding: 1em 1.5em 0;
+    flaot:right;
+    margin-left:2em;
 }
 
 /* Blockquotes responsive */
-/* Optional rules that set blockquotes to full width on smaller screens */
-@media screen and (max-width: 780px) {
-    blockquote.alignleft,
-    blockquote.alignright { width: 40%; }
-}
+/* Optional rules that set blockquotes to full width on bigger screens */
 
-@media screen and (max-width:600px) {
+@media screen and (min-width: 780px) {
     blockquote.alignleft,
     blockquote.alignright {
-        width: 100%;
-        padding: 1em 1.5em 0;
+        width: 50%;
+        padding: 1em 0 0;
+    }
+}
+
+@media screen and (min-width:650px) {
+    blockquote.alignleft,
+    blockquote.alignright {
+        width:40%;
     }
 }
 
@@ -500,7 +503,8 @@ table {
 button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+a.btn{
     border: 1px solid #FBC02D;
     background: #FFFFFF;
     color: #FBC02D;
@@ -508,15 +512,21 @@ input[type="submit"] {
     font-size: 1.8rem;
     line-height: 22px;
     padding: 1rem 2rem;
-    -webkit-appearance: button;
+    text-decoration: none;
 }
 
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+a.btn:hover,
+a.btn:visited:hover{
     color:white;
     background:  #FBC02D;
+}
+
+a.btn:visited{
+    color: #FBC02D;
 }
 
 button:focus,
@@ -729,23 +739,113 @@ button.menu-toggle {
 .site-main .comment-navigation,
 .site-main .posts-navigation,
 .site-main .post-navigation {
-    margin: 0 0 1.5em;
-    overflow: hidden;
+    font-family: 'Bitter', serif;
+    font-weight: 700;
+    color:#727272;
 }
 
 .comment-navigation .nav-previous,
 .posts-navigation .nav-previous,
 .post-navigation .nav-previous {
-    float: left;
     width: 50%;
+    float: left;
+    padding-right: 10%;
 }
 
 .comment-navigation .nav-next,
 .posts-navigation .nav-next,
 .post-navigation .nav-next {
-    float: right;
-    text-align: right;
     width: 50%;
+    float: right;
+    padding-left: 10%;
+    text-align: right;
+}
+
+.post-navigation{
+    clear:both;
+}
+
+.comment-navigation{
+    padding: 1em 0;
+    margin: 3em 0;
+    border-bottom: #727272 solid 1px;
+    border-top: #727272 solid 1px;
+}
+
+.nav-links a{
+    text-decoration: none;
+}
+
+/*Nav Arrows*/
+.fa.nav{
+    color: #FBC02D;
+    font-size:25px;
+    font-size:2.5rem;
+    padding:10px;
+    border: 1px solid #FBC02D;
+    background-color: #FFFFFF;
+}
+
+.fa.nav:hover{
+    color:#FFFFFF;
+    background-color: #FBC02D;
+}
+
+.fa-backward{
+    float:right;
+}
+
+.fa-forward{
+    float:left;
+}
+
+
+/*hiding titles on small screens*/
+.navtext{
+    display:none;
+}
+
+/*showing titles on screens bigger than 500px*/
+@media screen and (min-width: 500px){
+    .post-navigation{
+        padding: 0 15px;
+    }
+
+    .navtext{
+        display:inline;
+    }
+
+    .navtext p{
+        margin:0;
+        line-height: 120%;
+    }
+
+    .fa-backward,
+    .fa-forward{
+        float:none;
+    }
+
+    .fa.nav{
+        font-size: 31px;
+        font-size: 3.1rem;
+        padding:14px;
+    }
+
+    .fa-backward{
+        margin-right: 25px;
+    }
+
+    .fa-forward{
+        margin-left: 25px;
+    }
+
+    .arrow-next{
+        float:right;
+    }
+
+    .arrow-previous{
+        float:left;
+    }
 }
 
 
@@ -783,6 +883,66 @@ button.menu-toggle {
     }
 
 }
+
+/********************
+Pagination
+********************/
+nav.navigation.pagination{
+    clear:both;
+}
+
+.pagination .nav-links{
+    text-align: center;
+    font-size: 14px;
+    font-size: 1.4rem;
+    color: #FBC02D;
+}
+
+.pagination .nav-links a,
+.pagination .nav-links span.current{
+    padding: 10px 14px;
+    border: solid 1px #FBC02D;
+    color:inherit;
+    margin-right:0;
+}
+
+.pagination .nav-links a i {
+    margin:0;
+}
+
+.pagination .nav-links i{
+    float:none;
+}
+
+.pagination .nav-links span.current,
+.pagination .nav-links a:hover{
+    background-color: #FBC02D;
+    color:white;
+}
+
+@media screen and (min-width: 450px){
+    .pagination .nav-links{
+        font-size: 18px;
+        font-size: 1.8rem;
+    }
+
+    .pagination .nav-links a,
+    .pagination .nav-links span.current{
+        padding: 12px 17px;
+    }
+
+    .pagination .nav-links a,
+    .pagination .nav-links span.current{
+        margin-right:10px;
+    }
+}
+
+@media screen and (min-width: 1160px){
+    nav.navigation.pagination{
+        margin-bottom: 2em;
+    }
+}
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -1009,6 +1169,18 @@ input[type="search"] {
     margin-right: auto;
 }
 
+/* Alignment responsive */
+@media screen and (min-width: 1000px) {
+    .single .alignleft {
+        margin-left: -160px;
+    }
+    .single .alignright {
+        margin-right: -160px;
+    }
+}
+
+
+
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
@@ -1029,7 +1201,7 @@ input[type="search"] {
 }
 
 .clear:after,
-.entry-content:after,
+/*.entry-content:after,*//*i have no idea why this causes problems...*/
 .comment-content:after,
 .site-header:after,
 .site-content:after,
@@ -1101,6 +1273,8 @@ TAGCLOUD
     font-weight: 100;
     margin: 0 0 1rem;
     line-height:120%;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .entry-title a{
@@ -1154,13 +1328,13 @@ TAGCLOUD
 .entry-content ol {
     font-size: 14px;
     font-size: 1.4rem;
-    line-height: 120%;
+    line-height: 140%;
 }
 
 .entry-content blockquote p {
     font-size: 16px;
     font-size: 1.6rem;
-    line-height: 140%;
+    line-height: 160%;
 }
 
 /*Bigger Screen needs bigger fonts*/
@@ -1214,13 +1388,13 @@ TAGCLOUD
     .entry-content ol {
         font-size: 16px;
         font-size: 1.6rem;
-        line-height: 120%;
+        line-height: 140%;
     }
 
     .entry-content blockquote p {
         font-size: 18px;
         font-size: 1.8rem;
-        line-height: 140%;
+        line-height: 160%;
     }
 }
 
@@ -1229,9 +1403,14 @@ TAGCLOUD
 @media screen and (min-width: 1400px){
 
     .entry-title{
-        font-size:45px;
-        font-size: 4.5rem;
+        font-size:35px;
+        font-size: 3.5rem;
         margin: 0 0 1.5rem;
+    }
+
+    article:first-child .entry-title{
+        font-size: 45px;
+        font-size: 4.5rem;
     }
 
     .entry-content h1 {
@@ -1269,13 +1448,13 @@ TAGCLOUD
     .entry-content ol {
         font-size: 17px;
         font-size: 1.7rem;
-        line-height: 120%;
+        line-height: 140%;
     }
 
     .entry-content blockquote p {
         font-size: 20px;
         font-size: 2rem;
-        line-height: 140%;
+        line-height: 160%;
     }
 }
 
@@ -1372,6 +1551,7 @@ TAGCLOUD
 }
 
 .hentry {
+    padding-bottom: 1.5em;
     margin: 1rem 1.5rem 2rem;
     border-bottom: solid 1px #B6B6B6;
 }
@@ -1383,7 +1563,7 @@ TAGCLOUD
 @media screen and (min-width:700px) {
 
     .hentry{
-        margin: 1rem auto;
+        margin: 1rem auto 2rem;
         max-width: 700px;
         border: 1px solid #B6B6B6;
         box-shadow: 0px 2px 2px 0px rgba(125,125,125,0.50);
@@ -1400,11 +1580,13 @@ TAGCLOUD
 @media screen and (min-width:1440px){
     .hentry{
         width: 500px;
+        height:420px;
         margin-right: 0;
     }
     /*first post gets special look*/
     .hentry:first-child{
         width:auto;
+        height:auto;
         max-width: 100%;
         border: none;
         box-shadow: none;
@@ -1413,14 +1595,23 @@ TAGCLOUD
     .single .hentry:first-child{
         padding-left:0;
     }
+
+    .hentry:first-child a.btn-continue{
+        margin-left: 210px;
+    }
+
     /*make room for the shifted meta block*/
     .hentry:first-child .entry-content{
         position:relative;
         left:0;
         max-width:700px;
         margin:0;
-        overflow: hidden;
+        overflow:hidden; /*hack to avoid problem with metabox alignment on front page, causes problems with overflow...*/
     }
+    .single .hentry:first-child .entry-content{
+        overflow:visible;
+    }
+
     .hentry:first-child .entry-content p:first-child{
         margin-top:0;
     }
@@ -1487,6 +1678,32 @@ TAGCLOUD
 }
 
 /*--------------------------------------------------------------
+Index and Archive
+--------------------------------------------------------------*/
+
+.entry-footer button{
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width: 700px){
+    .entry-footer button{
+        display:block;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 1400px){
+    .entry-footer button{
+        display:block;
+        margin: 0;
+    }
+
+    .hentry:first-child button{
+        margin-left:210px;
+    }
+}
+
+/*--------------------------------------------------------------
 ## Asides
 --------------------------------------------------------------*/
 .blog .format-aside .entry-title,
@@ -1497,12 +1714,132 @@ TAGCLOUD
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
+.comments-area{
+    padding:0 15px;
+}
+.comments-area > ol {
+    padding: 0;
+    margin: 2em 0;
+    list-style-type: none;
+}
+
+ol.children {
+    list-style-type: none;
+    padding:0;
+}
+
+.comment-list ol {
+    margin-left: 0;
+}
+
+.comment-meta { margin-bottom: 1em; }
+
+.comment-author .avatar {
+    width: 50px;
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+
+.comment-author .fn {
+    font-weight: 900;
+    font-family: 'Bitter', serif;
+    font-size: 20px;
+    font-size: 2rem;
+}
+
+.comment-author a{
+    text-decoration: none;
+}
+
+.comment-metadata {
+    font-size: 14px;
+    font-size:1.4rem;
+}
+
+.comment-metadata a{
+    text-decoration: none;
+}
+
+.comment-content { font-size: 90%; }
+
+.comment-content,
+.reply { margin-left: 0; }
+
+.comment-body {
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+    border-bottom: solid hsl(0, 0%, 80%) 1px;
+}
+
+li.comment:last-child .comment-body{
+    border-bottom: none;
+}
+
+.comment-content ol { margin-left: 0; }
+
 .comment-content a {
     word-wrap: break-word;
 }
 
 .bypostauthor {
     display: block;
+}
+
+.bypostauthor > .comment-body {
+    position: relative;
+    padding: 1em;
+    margin-bottom: 2em;
+    background: hsl(0, 0%, 93%);
+    border: none;
+}
+
+.reply {
+    font-weight: 700;
+    font-family: 'Bitter', serif;
+    font-size: 16px;
+    font-size: 1.6rem;
+
+}
+
+.reply a{
+    color:#212121;
+    text-decoration: none;
+}
+.reply a:hover{
+    color:#FBC02D;
+}
+
+@media screen and (min-width: 600px){
+    .comment-list ol{
+        margin-left: 1.5em;
+    }
+    .comment-content ol {
+        margin-left: 1.5em;
+    }
+    .comment-content,
+    .reply { margin-left: 70px; }
+}
+
+/*Comment Form*/
+.comment-reply-title{
+    font-size: 2rem;
+    font-size: 20px;
+
+}
+
+.comment-form {
+    padding-bottom: 4rem;
+    font-size: 16px;
+    font-size: 1.6rem;
+}
+
+.comment-form label {
+    display: block;
+}
+
+.required{
+    color: red;
 }
 
 
@@ -1665,6 +2002,53 @@ object {
     max-width: 100%;
 }
 
+/*Featured Image */
+/*single page*/
+.single-post-thumbnail{
+    width:100%;
+    height:210px;
+    overflow:hidden;
+}
+
+.single-post-thumbnail img{
+    width:100%;
+    min-width:320px;
+}
+
+@media screen and (min-width: 600px){
+    .single-post-thumbnail{
+        height:300px;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    .single-post-thumbnail{
+        height:360px;
+    }
+}
+
+/*front page*/
+.front-post-thumbnail{
+    display:none;
+    margin-bottom: 15px;
+}
+
+@media screen and (min-width: 700px){
+    .front-post-thumbnail{
+        display:block;
+        width:100%;
+        height:300px;
+        overflow:hidden;
+    }
+}
+
+@media screen and (min-width: 1400px){
+    .front-post-thumbnail{
+        height:360px;
+    }
+
+}
+
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
@@ -1682,8 +2066,12 @@ object {
     text-align: center;
 }
 
-.wp-caption .wp-caption-text {
+.wp-caption .wp-caption-text,
+.gallery-caption{
     margin: 0.8075em 0;
+    font-size: 12px;
+    font-size: 1.2rem;
+    color: #727272;
 }
 
 /*--------------------------------------------------------------
@@ -1694,10 +2082,13 @@ object {
 }
 
 .gallery-item {
-    display: inline-block;
-    text-align: center;
-    vertical-align: top;
-    width: 100%;
+    position: relative;
+    max-width:100%;
+    float: left;
+    margin-right: 3.333333333%;
+    margin-bottom: 3rem;
+    background: #333;
+    overflow: hidden;
 }
 
 .gallery-columns-2 .gallery-item {
@@ -1733,5 +2124,28 @@ object {
 }
 
 .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-height: 50%;
+    width: 100%;
+    padding: 6px 8px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #fff;
+    text-align: left;
+    background-color: hsla(0, 0%, 0%, .8);
+    opacity: 0;
+}
+
+.gallery-item:hover .gallery-caption {
+    opacity: 1;
+}
+.site-main .gallery a img {
+    max-width: 100%;
+    height: auto;
     display: block;
+    margin: 0 auto;
+    border: none;
 }
