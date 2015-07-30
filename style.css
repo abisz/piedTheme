@@ -4,7 +4,7 @@ Theme URI: http://piedcode.com/
 Author: Simon Reinsperger
 Author URI: http://piedcode.com/
 Description: PiedTheme is a simple, fully responsive, blogging theme
-Version: 1.0
+Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: piedtheme
@@ -1570,7 +1570,8 @@ TAGCLOUD
         padding: 1.5rem 3rem;
     }
 
-    .single .hentry{
+    .single .hentry,
+    .page .hentry{
         border:none;
         box-shadow: none;
     }
@@ -1592,7 +1593,8 @@ TAGCLOUD
         box-shadow: none;
         padding-left:100px;
     }
-    .single .hentry:first-child{
+    .single .hentry:first-child,
+    .page .hentry:first-child{
         padding-left:0;
     }
 
