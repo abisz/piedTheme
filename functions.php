@@ -98,6 +98,7 @@ add_action( 'after_setup_theme', 'piedtheme_content_width', 0 );
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
 function piedtheme_widgets_init() {
+
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'piedtheme' ),
 		'id'            => 'sidebar-1',

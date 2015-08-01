@@ -4,7 +4,7 @@ Theme URI: http://piedcode.com/
 Author: Simon Reinsperger
 Author URI: http://piedcode.com/
 Description: PiedTheme is a simple, fully responsive, blogging theme
-Version: 1.0.1
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: piedtheme
@@ -34,6 +34,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Alignments
 # Clearings
 # Widgets
+    ## Sidebar About
 # Content
     ## Posts and pages
 	## Asides
@@ -1258,11 +1259,58 @@ TAGCLOUD
 }
 
 /*--------------------------------------------------------------
+## Sidebar About
+--------------------------------------------------------------*/
+.portrait-photo{
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    width:160px;
+    height:160px;
+}
+
+
+/*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+
+.page .hentry{
+    border-bottom: none;
+}
+
+/*About*/
+/*since there's no sidebar the content has to be in the middle
+    @todo change it to a no-sidebar class
+    @todo change template to not display title on about page
+*/
+.about.content-area{
+    margin:0 auto;
+    padding:0;
+}
+
+/*I feel bad for doing this */
+.about .entry-title{
+    display:none;
+}
+
+.about .portrait-photo{
+    float:none;
+    margin: 1em auto;
+    display:block;
+}
+
+@media screen and (min-width: 500px){
+    .about .portrait-photo{
+        float:right;
+        display: inline;
+        margin: 0 2em;
+    }
+}
+
+
 /*--------------------------------------------------------------
 ### Typography
 --------------------------------------------------------------*/
@@ -1273,6 +1321,11 @@ TAGCLOUD
     font-weight: 100;
     margin: 0 0 1rem;
     line-height:120%;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+article{
     -ms-word-wrap: break-word;
     word-wrap: break-word;
 }
@@ -1288,8 +1341,9 @@ TAGCLOUD
 .entry-content h4,
 .entry-content h5,
 .entry-content h6 {
+    line-height: 1.2;
     font-weight: 100;
-    margin: 0 0 .5rem; }
+    margin: 0.8em 0 .5rem; }
 
 .entry-content h1 {
     font-weight: 700;
@@ -1326,8 +1380,8 @@ TAGCLOUD
 .entry-content p,
 .entry-content ul,
 .entry-content ol {
-    font-size: 14px;
-    font-size: 1.4rem;
+    font-size: 15px;
+    font-size: 1.5rem;
     line-height: 140%;
 }
 
@@ -1350,7 +1404,7 @@ TAGCLOUD
     .entry-content h3,
     .entry-content h4,
     .entry-content h5,
-    .entry-content h6 { margin: 0 0 1rem; }
+    .entry-content h6 { margin: 0.8em 0 1rem; }
 
 
     .entry-content h1 {
@@ -1405,7 +1459,7 @@ TAGCLOUD
     .entry-title{
         font-size:35px;
         font-size: 3.5rem;
-        margin: 0 0 1.5rem;
+        margin: 0.8 0 1.5rem;
     }
 
     article:first-child .entry-title{
@@ -2071,8 +2125,8 @@ object {
 .wp-caption .wp-caption-text,
 .gallery-caption{
     margin: 0.8075em 0;
-    font-size: 12px;
-    font-size: 1.2rem;
+    font-size: 14px;
+    font-size: 1.4rem;
     color: #727272;
 }
 

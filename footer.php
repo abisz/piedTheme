@@ -15,6 +15,7 @@
 
         <?php piedtheme_social_menu(); ?>
 
+
         <div id="impressum">
             <h1>Impressum:</h1>
             <p>Simon Reinsperger</p>
