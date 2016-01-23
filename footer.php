@@ -19,14 +19,14 @@
         <div id="impressum">
             <h1>Impressum:</h1>
             <p>Simon Reinsperger</p>
-            <p>1220, Wien </p>
-            <p>privater Blog über Webtechnologien</p>
+            <p>1220, Vienna </p>
+            <p>private Blog about web technology</p>
         </div>
 
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'piedtheme' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'piedtheme' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'piedtheme' ), 'piedtheme', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+			<?php printf( esc_html__( 'Theme: %1$s based on %2$s', 'piedtheme' ), 'piedtheme', '<a href="http://underscores.me/" rel="designer">Underscores.me </a>' ); ?>
 		</div><!-- .site-info -->
 
 
